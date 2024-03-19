@@ -2,7 +2,7 @@ name: Test GHA
 
 on:
   pull_request_target:
-    types: [closed]
+    types: [closed, opened, ready_for_review]
 
 jobs:
   echo-pr-event:
