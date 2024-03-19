@@ -14,3 +14,7 @@ jobs:
           PR_NUMBER: ${{ github.event.number }}
         run: |
           echo "Checking PR_NUMBER: $PR_NUMBER"
+      - name: Print git branch and hash
+        run: |
+          echo "Branch: $(git rev-parse --abbrev-ref HEAD)"
+          echo "Commit Hash: $(git rev-parse HEAD)"
