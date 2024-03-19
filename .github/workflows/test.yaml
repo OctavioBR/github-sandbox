@@ -8,6 +8,8 @@ jobs:
   echo-pr-event:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Echo event
         id: echo-event
         env:
