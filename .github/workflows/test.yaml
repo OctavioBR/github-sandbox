@@ -1,0 +1,16 @@
+name: Test GHA
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  echo-pr-event:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo event
+        id: echo-event
+        env:
+          PR_NUMBER: ${{ github.event.number }}
+        run: |
+          echo "Checking PR_NUMBER: $PR_NUMBER"

@@ -1,2 +1,2 @@
 # github-sandbox
-Test github capabilities
+Test github capabilities like Github Actions...
