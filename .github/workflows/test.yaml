@@ -16,5 +16,6 @@ jobs:
           echo "Branch: $(git rev-parse --abbrev-ref HEAD)"
           echo "Commit Hash: $(git rev-parse HEAD)"
           echo "Pull request number: $PR_NUMBER"
+          echo "About to wait at $(date +'%H:%M:%S %Z %d/%m/%y')"
       - name: Wait for 30 seconds
         run: sleep 30
