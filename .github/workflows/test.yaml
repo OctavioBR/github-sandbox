@@ -1,8 +1,7 @@
 name: Test GHA
 
 on:
-  push:
-    branches-ignore: [main]
+  push: {}
 
 jobs:
   echo-pr-event:
@@ -18,5 +17,5 @@ jobs:
           echo "Commit Hash: $(git rev-parse HEAD)"
           echo "Pull request number: $PR_NUMBER"
           echo "About to wait at $(date +'%H:%M:%S %Z %d/%m/%y')"
-      - name: Wait for 30 seconds
-        run: sleep 30
+      - name: Wait for 45 seconds
+        run: sleep 45
