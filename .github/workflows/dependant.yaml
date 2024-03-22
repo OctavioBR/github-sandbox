@@ -5,7 +5,7 @@ on:
 jobs:
   wait-if-test:
     runs-on: ubuntu-latest
-    steps:
+    steps: # B
       # - name: Wait for test workflow
       #   uses: lewagon/wait-on-check-action@v1.3.3
       #   with:
