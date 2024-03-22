@@ -1,18 +1,20 @@
 name: Dependant Workflow
 on:
-  push: {}
-
+  push:
+    branches-ignore: [main]
 jobs:
   wait-if-test:
     runs-on: ubuntu-latest
     steps:
-      - name: Wait for test workflow
-        uses: lewagon/wait-on-check-action@v1.3.3
-        with:
-          ref: ${{ github.ref }}
-          check-name: echo-pr-event
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          # wait-interval: 10 # seconds, default: 10
+      # - name: Wait for test workflow
+      #   uses: lewagon/wait-on-check-action@v1.3.3
+      #   with:
+      #     ref: ${{ github.ref }}
+      #     check-name: echo-pr-event
+      #     repo-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Workflow completed
         if: always()
         run: echo "Dependant workflow is done at $(date +'%H:%M:%S %Z %d/%m/%y')"
+concurrency:
+  group: lock
+  cancel-in-progress: false
