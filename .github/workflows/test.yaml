@@ -1,8 +1,7 @@
 name: Test GHA
 
 on:
-  pull_request_target:
-    types: [closed, opened, ready_for_review]
+  push: {}
 
 jobs:
   echo-pr-event:
@@ -10,15 +9,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.ref }}
-      - name: Echo event
-        id: echo-event
+      - name: Print git branch, hash and PR number
         env:
           PR_NUMBER: ${{ github.event.number }}
         run: |
-          echo "Checking PR_NUMBER: $PR_NUMBER"
-      - name: Print git branch and hash
-        run: |
           echo "Branch: $(git rev-parse --abbrev-ref HEAD)"
           echo "Commit Hash: $(git rev-parse HEAD)"
+          echo "Pull request number: $PR_NUMBER"
+      - name: Wait for 30 seconds
+        run: sleep 30
